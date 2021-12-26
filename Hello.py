@@ -1,5 +1,5 @@
 # tkinter basic 
-'''from tkinter import *
+from tkinter import *
 window = Tk()
 label = Label(window, text = "Hello tkinter")
 button = Button(window, text="클릭하세요!", bg = "yellow", fg = "blue", width=6, height = 2)
@@ -7,18 +7,18 @@ entry = Entry(window, fg = "black", bg = "yellow", width = 80)
 label.pack()
 button.pack()
 entry.pack()
-window.mainloop()'''
+window.mainloop()
 
 # pack.py
-'''from tkinter import *
+from tkinter import *
 window = Tk() 
 Button(window, text = "Box 1", bg = "red", fg = "white").pack(side = LEFT)
 Button(window, text = "Box 2", bg = "blue", fg = "white").pack(side = RIGHT)
 Button(window, text = "Box 3", bg = "black", fg = "white").pack() # side = LEFT, RIGHT, TOP, BOTTOM
-window.mainloop()'''
+window.mainloop()
 
 # grid.py
-'''from tkinter import * 
+from tkinter import * 
 window = Tk() 
 box1 = Button(window, text = "Box 1", bg = "red", fg = "white")
 box2 = Button(window, text = "Box 2", bg = "blue", fg = "white")
@@ -28,7 +28,7 @@ box1.grid(row = 0, column = 0)
 box2.grid(row = 0, column = 1)
 box3.grid(row = 1, column = 0)
 box4.grid(row = 1, column = 1)
-window.mainloop()'''
+window.mainloop()
 
 # place.py
 from tkinter import * 
