@@ -1,5 +1,5 @@
 # 1. 
-'''from tkinter import * 
+from tkinter import * 
 window = Tk()
 label = Label(window, text = "Hi!")
 label.pack(side = LEFT)
@@ -8,16 +8,16 @@ def click():
 button = Button(window, text = "click me", command = click)
 button.pack(side = LEFT)
 
-window.mainloop()'''
+window.mainloop()
 
 #2. 
-'''from tkinter import *
+from tkinter import *
 window = Tk()
 Label(window, text = "Hello, I'm Label", width = 50, height = 3, bg = "orange", fg = "blue").pack()
-window.mainloop()'''
+window.mainloop()
 
 #3.
-'''from tkinter import * 
+from tkinter import * 
 window = Tk()
 row_index = 0
 col_index = 0
@@ -32,10 +32,10 @@ for button_text in button_list:
   if col_index > 9:
     row_index += 1
     col_index = 0
-window.mainloop()'''
+window.mainloop()
 
 #4. 
-'''from tkinter import * 
+from tkinter import * 
 window = Tk()
 
 #Labels
@@ -46,21 +46,21 @@ code = Label(window, text = "우편번호:").grid(row = 3, column = 0)
 country = Label(window, text = "국가:").grid(row = 4, column = 0)
 
 #Entries
-e1 = Entry(window, bg = "white").grid(row = 0, column = 1, columnspan = 9)
-e2 = Entry(window, bg = "white").grid(row = 1, column = 1, columnspan = 9)
-e3 = Entry(window, bg = "white").grid(row = 2, column = 1, columnspan = 9)
-e4 = Entry(window, bg = "white").grid(row = 3, column = 1, columnspan = 9)
-e5 = Entry(window, bg = "white").grid(row = 4, column = 1, columnspan = 9)
+e1 = Entry(window, bg = "white", fg = "black").grid(row = 0, column = 1, columnspan = 9)
+e2 = Entry(window, bg = "white", fg = "black").grid(row = 1, column = 1, columnspan = 9)
+e3 = Entry(window, bg = "white", fg = "black").grid(row = 2, column = 1, columnspan = 9)
+e4 = Entry(window, bg = "white", fg = "black").grid(row = 3, column = 1, columnspan = 9)
+e5 = Entry(window, bg = "white", fg = "black").grid(row = 4, column = 1, columnspan = 9)
 
 #Buttons
 clear = Button(window, text = "clear").grid(row = 5, column = 9)
 submit = Button(window, text = "submit").grid(row = 5, column = 10)
 
-window.mainloop()'''
+window.mainloop()
 
 
 #5. 
-'''from tkinter import * 
+from tkinter import * 
 window = Tk()
 
 number = Label(window, text = "0")
@@ -87,10 +87,10 @@ dec = Button(window, text = "Decrease", command = Decrease).grid(row = 0, column
 reset = Button(window, text = "Reset", command = Reset).grid(row = 1, column = 1) 
 
   
-window.mainloop()'''
+window.mainloop()
 
 #6. 
-'''from tkinter import * 
+from tkinter import * 
 import random 
 window = Tk()
 
@@ -104,10 +104,10 @@ def Roll():
 button = Button(window, text = "Roll", command = Roll)
 button.pack(side = "left")
 
-window.mainloop()'''
+window.mainloop()
 
 #7. 
-'''from tkinter import * 
+from tkinter import * 
 import random 
 window = Tk()
 
@@ -141,7 +141,7 @@ button2 = Button(window, text = "Reset", command = Reset)
 button2.grid(row = 2, column = 6)
 
 
-window.mainloop()'''
+window.mainloop()
 
 #8. 
 from tkinter import *
@@ -169,9 +169,9 @@ def Login():
 
 def Reset():
   id.get()
-  id.delete(0, len(id))
+  id.delete(0, END)
   password.get()
-  password.delete(0, len(password))
+  password.delete(0, END)
 
 #Button
 log = Button(window, text = "Login", command = Login)
