@@ -123,4 +123,152 @@ class Mytime:
 time = Mytime(10, 25, 30)
 print(time)
 
+# Composition
+class Card:
+  shapeName = ["Club", "Diamond", "Heart", "Spade"]
+  rankName = [None, "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
+  def __init__(self, shape, rank):
+    self.shape = shape
+    self.rank = rank
+  
+  def __str__(self):
+    return Card.shapeName[self.shape] + " " + Card.rankName[self.rank]
+
+class Deck:
+  def __init__(self):
+    self.cards = []
+    for shape in range(4):
+      for rank in range(1, 14):
+        card = Card(shape, rank)
+        self.cards.append(card)
+  def __str__(self):
+    deck = [str(card) for card in self.cards] 
+    return str(deck) 
+
+deck = Deck()
+print(deck)
+
+# Inherit and Composition
+class Person:
+  def __init__(self, name, number):
+    self.name = name
+    self.number = number 
+
+class Student(Person):
+  def __init__(self, name, number):
+    super().__init__(name, number)
+    self.classes = []
+  def RegisterClasses(self, course):
+    self.classes.append(course)
+  def __str__(self):
+    return "이름 = %s" %self.name + "\n주민번호 = %s" %self.number + "\n수강과목 = %s" %self.classes 
+
+class Teacher(Person):
+  def __init__(self, name, number, salary):
+    super().__init__(name, number)
+    self.courses = []
+    self.salary = salary 
+  def HaveCourses(self, classes):
+    self.courses.append(classes)
+  def __str__(self):
+    return "이름 = %s" %self.name + "\n주민번호 = %s" %self.number + "\n강의과목 = %s" %self.courses + "\n월급 = %s" %self.salary
+
+Kim = Student("Kim", 901030)
+Kim.RegisterClasses("Python")
+Kim.RegisterClasses("Java")
+print(Kim)
+
+Kwon = Teacher("Kwon", 871010, 3000000)
+Kwon.HaveCourses("Python")
+print(Kwon)
+
+# Practice
+
+class Point:
+  def __init__(self, x = 0, y = 0):
+    self.x = x 
+    self.y = y
+  def __str__(self):
+    return "(%s, %s)" %(self.x, self.y)
+
+class Point3D(Point):
+  def __init__(self, x = 0, y = 0, z = 0):
+    super().__init__(x, y)
+    self.z = z 
+  def __str__(self):
+    return "(%s, %s, %s)" %(self.x, self.y, self.z)
+
+print(Point3D(1, 3, 2))
+
+# Practice
+
+# Given class
+class Address:
+  def __init__(self, street, city):
+    self.street = str(street)
+    self.city = str(city)
+  
+class Person:
+  def __init__(self, name, email):
+    self.name = str(name) 
+    self.email = str(email)
+
+# Contact class
+class Contact(Address, Person):
+  def __init__(self, street, city, name, email):
+    Address.__init__(self, street, city)
+    Person.__init__(self, name, email)
+  def __str__(self):
+    return "Name: %s" %self.name + "\nCity: %s" %self.city + "\nStreet: %s" %self.street +\
+    "\nEmail address: %s" %self.email 
+
+Kim = Contact("Kim", "Seattle", "64th St", "Kim@gmail.com")
+print(Kim)
+
+# Practice - Make FraudDice
+
+import random 
+class Dice:
+  def __init__(self):
+    self.dice = [x for x in range(1, 6)]
+  def Roll(self):
+    return random.randint(1, len(self.dice) + 1)
+
+class FraudDice(Dice):
+  def __init__(self):
+    super().__init__()
+  def Roll(self):
+    die = random.randint(1, len(self.dice) + 1)
+    while die <= 3:
+      die = random.randint(1, len(self.dice) + 1)
+    return die
+    
+
+x = FraudDice()
+x.Roll()
+
+# Practice - Oldest cat
+class Animal:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age 
+
+class Cat(Animal):
+  def __init__(self, name, age, breed):
+    super().__init__(name, age)
+    self.breed = breed
+  def __str__(self):
+    return "고양이의 이름은 %s 입니다." %self.name + "\n나이는 %s살이고 %s종 입니다" %(self.age, self.breed)
+
+cat1 = Cat("Happy", 5, "Persian")
+cat2 = Cat("Tes", 3, "Russian Blue")
+cat3 = Cat("Ruby", 7, "British ShortHair")
+
+def get_oldest_cat(*args):
+  return max(args)
+
+print(cat1) 
+print(cat2) 
+print(cat3) 
+print("\n이중에서 가장 나이가 많은 고양이는 %s살입니다." %get_oldest_cat(cat1.age, cat2.age, cat3.age))
