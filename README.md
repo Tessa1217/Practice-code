@@ -21,7 +21,8 @@
     3. 백준
     4. MDN Web Docs
     
-Brief Introduction: 
+### Brief Introduction: 
+
 I'm new to programming languages. 
 Learning a language can be difficult, but its complexity fascinates me. 
 Python is my first programming language! Next will be Java. (Soon Hopefully...)
